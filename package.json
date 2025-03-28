@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/react": "^19.0.12",
+    "vite": "^6.2.3"
+  }
+}
