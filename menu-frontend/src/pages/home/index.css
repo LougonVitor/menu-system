@@ -1,0 +1,29 @@
+#container {
+    width: 90%;
+    max-width: 1300px;
+
+    display: flex;
+    margin: auto;
+
+    & .centralizing {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.title-box {
+    margin: auto;
+    padding: 20px;
+
+    & h1 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+}
+
+.card-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+}
