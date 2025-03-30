@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 @Entity(name = "foods")
 @AllArgsConstructor
 public class Food {
+    public Food() {}
 
     public Food (String title, String image, Double price) {
         setTitle(title);
