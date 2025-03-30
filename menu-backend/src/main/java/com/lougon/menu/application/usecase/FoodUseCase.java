@@ -20,6 +20,7 @@ public class FoodUseCase implements IFoodUseCase {
         this.repository = repository;
     }
 
+    //List all foods in the database
     @Override
     public List<FoodResponseDto> getAllFoods() {
         List<FoodResponseDto> foods = repository.findAll().stream().map(FoodResponseDto::new).toList();
@@ -31,6 +32,7 @@ public class FoodUseCase implements IFoodUseCase {
         }
     }
 
+    //Save the food in the database
     @Override
     public void saveFood(FoodRequestDto request) {
         if(request.title() != null && request.price() != null && request.image() != null) {

@@ -20,6 +20,7 @@ public class FoodController {
         this.useCase = useCase;
     }
 
+    //List all foods in the database
     @GetMapping
     public List<FoodResponseDto> getAll() throws Exception {
         try {
@@ -29,6 +30,7 @@ public class FoodController {
         }
     }
 
+    //Save the food in the database
     @PostMapping
     public ResponseEntity<String> saveFood(@RequestBody FoodRequestDto request) throws Exception {
         try {
