@@ -25,7 +25,7 @@ export default function CreateModal({ closeModal } : ModalProps) {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState(0);
     const [image, setImage] = useState("");
-    const { mutate, isSuccess} = useFoodDataMutate();
+    const { mutate, isSuccess, isPending} = useFoodDataMutate();
 
     useEffect(() => {
         if(isSuccess) closeModal
@@ -52,7 +52,7 @@ export default function CreateModal({ closeModal } : ModalProps) {
                     <Input label={"Title"} value={title} updateValue={setTitle}></Input>
                     <Input label={"Price"} value={price} updateValue={setPrice}></Input>
                     <Input label={"Image"} value={image} updateValue={setImage}></Input>
-                    <button onClick={submit} className="btn-secondary">Post</button>
+                    <button onClick={submit} className="btn-secondary">{isPending ? 'Posting...' : 'Post'}</button>
                 </form>
             </div>
         </div>
