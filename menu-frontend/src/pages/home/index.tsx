@@ -33,8 +33,9 @@ export default function Home() {
               )}
             </div>
 
-            {isModalOpen && <CreateModal closeModal={handleOpenModal}/>}
-            <button onClick={handleOpenModal} className='btn-open-overlay'>Post Food</button>
+            {isModalOpen && <CreateModal closeModal={handleOpenModal} />}
+            {isModalOpen && <button onClick={handleOpenModal} className='btn-open-overlay' id='btn-close'>Close Post Tab</button>}
+            {!isModalOpen && <button onClick={handleOpenModal} className='btn-open-overlay'>Post Food</button>}
           </div>
 
         </div>
