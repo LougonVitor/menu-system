@@ -2,9 +2,10 @@ package com.lougon.menu.controller;
 
 import com.lougon.menu.application.dto.FoodRequestDto;
 import com.lougon.menu.application.dto.FoodResponseDto;
+import com.lougon.menu.domain.exceptions.FoodException;
 import com.lougon.menu.domain.usecase.IFoodUseCase;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,11 +23,14 @@ public class FoodController {
 
     //List all foods in the database
     @GetMapping
-    public List<FoodResponseDto> getAll() throws Exception {
+    public ResponseEntity<?> getAll() throws Exception {
         try {
-            return useCase.getAllFoods();
-        } catch (Exception ex) {
-            throw  new Exception("Error in the getAll method when searching for the list of foods: " + ex.getMessage());
+            List<FoodResponseDto> foods = useCase.getAllFoods();
+            return ResponseEntity.ok(foods);
+        } catch (FoodException exception) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No food items found: " + exception.getMessage());
+        } catch (Exception exception) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Unexpected error: " + exception.getMessage());
         }
     }
 
@@ -36,8 +40,8 @@ public class FoodController {
         try {
             useCase.saveFood(request);
             return ResponseEntity.ok("Food saved with successfully!");
-        } catch (Exception ex) {
-            throw new Exception("Error when saving food: " + ex.getMessage());
+        } catch (FoodException exception) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error when saving food: " + exception.getMessage());
         }
     }
 }
