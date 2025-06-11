@@ -5,12 +5,12 @@ ___It is worth mentioning that I decided to put the front-end and the back-end i
 
 ## 🚀 Technologies Used
 
-- **Java**
-- **Spring Boot**
-- **PostgreSQL**
-- **React**
-- **TypeScript**
-- **Clean Architecture**
+- **Java** ☕
+- **Spring Boot** 🌱
+- **PostgreSQL** 🐘
+- **React** ⚛️
+- **TypeScript** 🔷
+- **Clean Architecture** 🧼🏛️
 
 ## 🔧 How It Works
 
