@@ -1,11 +1,10 @@
 .card {
-    background-color: rgb(233, 227, 220);
+    background-color: var(--tertiary-color);
     width: 200px;
     height: 250px;
     border-radius: 15px;
     position: relative;
     overflow: hidden;
-    box-shadow: 5px 5px 10px rgb(105, 105, 105);
     transition: .3s;
     cursor: pointer;
 
@@ -35,4 +34,6 @@
     transition: .3s;
 
     transform: scale(1.01);
+
+    box-shadow: 5px 5px 10px rgba(105, 105, 105, 0.445);
 }
