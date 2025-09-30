@@ -18,9 +18,6 @@ export default function Home() {
         <div id='container'>
 
           <div className='centralizing'>
-            <div className='title-box'>
-              <h1>Menu System</h1>
-            </div>
 
             <div className='card-box'>
               {data?.map(foodData => 
