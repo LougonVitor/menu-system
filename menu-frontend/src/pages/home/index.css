@@ -19,6 +19,7 @@
 }
 
 #btn-close {
+    color: var(--quaternary-color);
     background-color: rgb(220, 17, 64);
 }
 
@@ -31,7 +32,7 @@
     padding: 8px 12px;
     cursor: pointer;
     border: none;
-    color: white;
+    color: var(--quaternary-color);
     font-weight: 400;
     background-color: var(--primary-color);
     border-radius: 5px;
