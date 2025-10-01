@@ -15,8 +15,8 @@ export default function Card( { price, title, image } : CardProps) {
                 </div>
 
                 <div className="box-info">
-                    <h1>Price: US${price}</h1>
-                    <p>Title: {title}</p>
+                    <h1>Price: <span>US$ {price}</span></h1>
+                    <p>Title: <span>{title}</span></p>
                 </div>
 
                 <button>Buy</button>

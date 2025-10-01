@@ -20,27 +20,93 @@
     }
 }
 
-.header-box.nav {
+.header-box {
+
+    /* GENERAL STYLE FOR LISTS */
     & ul {
         list-style: none;
         display: flex;
         justify-content: right;
         gap: 30px;
+        background-color: var(--primary-color);
+    }
 
-        & li {
-            cursor: pointer;
-            padding: 7px 10px;
+    & li {
+        cursor: pointer;
+        padding: 7px 10px;
+        transition: .3s;
+        color: var(--quaternary-color);
+    }
+
+    & li:hover {
+        background-color: var(--quaternary-color);
+        color: var(--primary-color);
+        padding: 7px 10px;
+        border-radius: 3px;
+        box-shadow: rgba(0, 0, 0, 0.295) 6px 6px 8px;
+    }
+
+    /* DEFAULT MENU STYLING */
+    & .default-menu {
+        display: block;
+    }
+
+    /* TOGGLE MENU STYLING */
+    & .toggle-menu {
+        cursor: pointer;
+        position: relative;
+        display: none;
+        justify-content: right;
+
+        & .toggle-button {
+            transform: scale(1.01, 1.01);
             transition: .3s;
-            color: var(--quaternary-color);
+            display: inline;
+
+            & .line {
+                height: 2px;
+                width: 25px;
+
+                margin: 6px 0px;
+                background-color: aliceblue;
+            }
+
+            & .line.l1, .line.l3 {
+                right: 0px;
+                position: absolute;
+                margin: 0;
+            }
+
+            & .line.l1 {
+                rotate: -45deg;
+            }
+
+            & .line.l3 {
+                rotate: 45deg;
+            }
         }
 
-        & li:hover {
-            background-color: var(--quaternary-color);
-            color: var(--primary-color);
-            padding: 7px 10px;
+        & .toggle-button:hover {
+            transform: scale(1.15, 1.15);
+        }
+
+        & ul {
+            z-index: 1;
+            position: absolute;
+            top: 60px;
+            right: 0;
             border-radius: 3px;
-
-            box-shadow: rgba(0, 0, 0, 0.295) 6px 6px 8px;
+            text-align: center;
         }
+    }
+}
+
+@media (max-width: 800px) {
+    #toggle {
+        display: flex;
+    }
+
+    #default {
+        display: none;
     }
 }

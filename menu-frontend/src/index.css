@@ -4,9 +4,11 @@
 :root{
   /* COLORS */
   --primary-color: #5D866C;
+  --text-color: #344b3c;
   --secundary-color: #C2A68C;
   --tertiary-color: #E6D8C3;
   --quaternary-color: #F5F5F0;
+  
 }
 
 * {
