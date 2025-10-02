@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
 import { useState } from "react";
 import "./style.css"
 
-export default function Header() {
+export function Header() {
     const [x, setX] = useState(0);
 
     const handleToggle = () => {
@@ -10,6 +11,7 @@ export default function Header() {
 
     return(
         <>
+        {/* <Link to='test'></Link> */}
         <header className="header">
 
             <div className='header-box title'>
@@ -26,15 +28,15 @@ export default function Header() {
                     </div>
 
                     <ul style={{display: x  === 0 ? 'none' : 'block'}}>
-                        <li>Delete Food</li>
-                        <li>Update Food</li>
+                        <Link to='/'><li>Home</li></Link>
+                        <Link to='/Foods'><li>Foods</li></Link>
                     </ul>
                 </nav>
 
                 <nav className="default-menu" id="default">
                     <ul>
-                        <li>Delete Food</li>
-                        <li>Update Food</li>
+                        <Link to='/'><li>Home</li></Link>
+                        <Link to='/Foods'><li>Foods</li></Link>
                     </ul>
                 </nav>
             </div>

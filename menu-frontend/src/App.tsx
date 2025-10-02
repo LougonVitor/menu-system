@@ -1,13 +1,19 @@
-import Home from './pages/home'
-import Header from './components/header'
 import './App.css'
+import Foods from './pages/Foods'
+import Home from './pages/Home'
+import { Layout } from './Layout'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <>
-    <Header />
-     <Home />
-    </>
+    <HashRouter>
+      <Routes>
+        <Route element={<Layout/>}>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/Foods' element={<Foods/>}/>
+        </Route>
+      </Routes>
+    </HashRouter>
   )
 }
 
