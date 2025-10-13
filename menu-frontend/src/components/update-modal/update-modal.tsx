@@ -45,9 +45,9 @@ export default function UpdateModal({id, title, price, image, closeModal}: foodP
             <div className="modal-body">
                 <h2>Send Form</h2>
                 <form className="input-container">
-                    <Input label={"Title"} value={title} classNameInput="post-input" classNameLabel="post-label"></Input>
-                    <Input label={"Price"} value={price} classNameInput="post-input" classNameLabel="post-label"></Input>
-                    <Input label={"Image"} value={image} classNameInput="post-input" classNameLabel="post-label"></Input>
+                    <Input label={"Title"} value={title} classNameInput="modal-input" classNameLabel="modal-label"></Input>
+                    <Input label={"Price"} value={price} classNameInput="modal-input" classNameLabel="modal-label"></Input>
+                    <Input label={"Image"} value={image} classNameInput="modal-input" classNameLabel="modal-label"></Input>
                     <button onClick={submit} className="btn-modal put">{isPending ? 'Updating...' : 'Update'}</button>
                     <button className="btn-modal cancel" onClick={hadleCancelDelete}>{isPending ? 'Canceling...' : 'Cancel'}</button>
                 </form>
