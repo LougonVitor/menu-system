@@ -23,25 +23,15 @@ public class FoodController {
     //List all foods in the database
     @GetMapping
     public ResponseEntity<?> getAll() throws Exception {
-        try {
-            List<FoodResponseDto> foods = useCase.getAllFoods();
-            return ResponseEntity.ok(foods);
-        } catch (FoodException exception) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No food items found: " + exception.getMessage());
-        } catch (Exception exception) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Unexpected error: " + exception.getMessage());
-        }
+        List<FoodResponseDto> foods = useCase.getAllFoods();
+        return ResponseEntity.ok(foods);
     }
 
     //Save the food in the database
     @PostMapping
     public ResponseEntity<String> saveFood(@RequestBody FoodRequestDto request) throws Exception {
-        try {
-            useCase.saveFood(request);
-            return ResponseEntity.ok("Food saved with successfully!");
-        } catch (FoodException exception) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error when saving food: " + exception.getMessage());
-        }
+        useCase.saveFood(request);
+        return ResponseEntity.ok("Food saved with successfully!");
     }
 
     //Delete the food in the database
