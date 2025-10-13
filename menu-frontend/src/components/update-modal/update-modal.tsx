@@ -1,4 +1,6 @@
 import { useFoodDataUpdate } from '../../hook/useFoodDataUpdate'
+import { FoodData } from '../../interface/FoodData'
+import { useState } from 'react'
 import './update-modal.css'
 
 interface foodProps {
@@ -12,31 +14,40 @@ interface foodProps {
 interface InputProps {
     label: string,
     value: number | string,
-/*     updateValue(value: any) : void,*/
+    updateValue(value: any) : void,
     classNameLabel: string,
     classNameInput: string
 }
 
-const Input = ({label, value, /* updateValue, */ classNameInput, classNameLabel} : InputProps) => {
+const Input = ({label, value, updateValue, classNameInput, classNameLabel} : InputProps) => {
     return (
         <>
             <label className={classNameLabel}>{label}</label>
-            <input value={value} /* onChange={event => updateValue(event.target.value)} */ className={classNameInput} />
+            <input value={value} onChange={event => updateValue(event.target.value)} className={classNameInput} />
         </>
     )
 }
 
 export default function UpdateModal({id, title, price, image, closeModal}: foodProps) {
-    const { isPending } = useFoodDataUpdate();
+    const [titleState, setTitle] = useState("");
+    const [priceState, setPrice] = useState(0);
+    const [imageState, setImage] = useState("");
+    const { mutate: udpateFood, isPending } = useFoodDataUpdate();
+
+    const submit = (event: React.FormEvent) => {
+        event.preventDefault();
+
+        const foodData : FoodData = {
+            title,
+            price,
+            image
+        }
+
+        udpateFood(foodData);
+    }
 
     const hadleCancelDelete = () => {
         closeModal();
-    }
-
-    const submit = (event: React.FormEvent) => {
-        event.preventDefault()
-
-
     }
 
     return (
@@ -45,9 +56,9 @@ export default function UpdateModal({id, title, price, image, closeModal}: foodP
             <div className="modal-body">
                 <h2>Send Form</h2>
                 <form className="input-container">
-                    <Input label={"Title"} value={title} classNameInput="modal-input" classNameLabel="modal-label"></Input>
-                    <Input label={"Price"} value={price} classNameInput="modal-input" classNameLabel="modal-label"></Input>
-                    <Input label={"Image"} value={image} classNameInput="modal-input" classNameLabel="modal-label"></Input>
+                    <Input label={"Title"} value={title} updateValue={setTitle} classNameInput="modal-input" classNameLabel="modal-label"></Input>
+                    <Input label={"Price"} value={price} updateValue={setPrice} classNameInput="modal-input" classNameLabel="modal-label"></Input>
+                    <Input label={"Image"} value={image} updateValue={setImage} classNameInput="modal-input" classNameLabel="modal-label"></Input>
                     <button onClick={submit} className="btn-modal put">{isPending ? 'Updating...' : 'Update'}</button>
                     <button className="btn-modal cancel" onClick={hadleCancelDelete}>{isPending ? 'Canceling...' : 'Cancel'}</button>
                 </form>
