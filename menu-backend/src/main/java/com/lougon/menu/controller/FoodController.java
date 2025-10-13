@@ -4,7 +4,6 @@ import com.lougon.menu.application.dto.FoodRequestDto;
 import com.lougon.menu.application.dto.FoodResponseDto;
 import com.lougon.menu.domain.exceptions.FoodException;
 import com.lougon.menu.domain.usecase.IFoodUseCase;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("food")
+@RequestMapping("/food")
 public class FoodController {
     private final IFoodUseCase useCase;
     @Autowired
@@ -44,4 +43,8 @@ public class FoodController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error when saving food: " + exception.getMessage());
         }
     }
+
+    //Delete the food in the database
+    @DeleteMapping("/{id}")
+    public void deleteFood(@PathVariable ("id") Long id) { this.useCase.deleteFood(id); }
 }

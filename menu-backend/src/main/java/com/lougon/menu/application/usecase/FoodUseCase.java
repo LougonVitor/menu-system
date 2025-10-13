@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.lougon.menu.domain.entities.Food;
 import com.lougon.menu.domain.exceptions.FoodException;
+import com.lougon.menu.domain.exceptions.FoodNotFoundException;
 import com.lougon.menu.domain.usecase.IFoodUseCase;
 import com.lougon.menu.infrastructure.repositories.IFoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +47,16 @@ public class FoodUseCase implements IFoodUseCase {
 
         Food food = new Food(request.title(), request.image(), request.price());
         repository.save(food);
+    }
+
+    @Override
+    public void deleteFood(Long id) {
+        Food food = this.repository.findById(id).orElseThrow(() -> new FoodNotFoundException("Food not found by id: " + id));
+
+        if (food != null) {
+            this.repository.delete(food);
+        } else {
+            throw new FoodException("Something went wrong: ");
+        }
     }
 }

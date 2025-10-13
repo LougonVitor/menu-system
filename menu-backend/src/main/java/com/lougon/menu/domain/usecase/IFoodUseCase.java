@@ -8,4 +8,5 @@ import java.util.List;
 public interface IFoodUseCase {
     List<FoodResponseDto> getAllFoods() throws Exception;
     void saveFood(FoodRequestDto request);
+    void deleteFood(Long id);
 }
