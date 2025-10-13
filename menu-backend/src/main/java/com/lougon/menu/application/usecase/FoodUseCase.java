@@ -50,6 +50,17 @@ public class FoodUseCase implements IFoodUseCase {
     }
 
     @Override
+    public void updateFood(Long id, FoodRequestDto request) {
+        Food food = this.repository.findById(id).orElseThrow(() -> new FoodNotFoundException("Food not found by id: " + id));
+
+        food.setTitle(request.title());
+        food.setPrice(request.price());
+        food.setImage(request.image());
+
+        this.repository.save(food);
+    }
+
+    @Override
     public void deleteFood(Long id) {
         Food food = this.repository.findById(id).orElseThrow(() -> new FoodNotFoundException("Food not found by id: " + id));
 

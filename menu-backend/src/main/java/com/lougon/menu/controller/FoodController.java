@@ -34,6 +34,12 @@ public class FoodController {
         return ResponseEntity.ok("Food saved with successfully!");
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateFood(@PathVariable ("id") Long id, @RequestBody FoodRequestDto request) {
+        useCase.updateFood(id, request);
+        return ResponseEntity.ok("Food updated with successfully!");
+    }
+
     //Delete the food in the database
     @DeleteMapping("/{id}")
     public void deleteFood(@PathVariable ("id") Long id) { this.useCase.deleteFood(id); }
