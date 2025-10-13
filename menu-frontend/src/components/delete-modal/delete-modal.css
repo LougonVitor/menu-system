@@ -2,8 +2,3 @@
     background-color: var(--red-color);
     color: var(--quaternary-color);
 }
-
-.btn-modal.cancel {
-    background-color: var(--tertiary-color);
-    color: var(--text-color);
-}

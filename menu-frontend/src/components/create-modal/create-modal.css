@@ -36,6 +36,11 @@
       border-radius: 5px;
     }
 
+    & .btn-modal.cancel {
+        background-color: var(--tertiary-color);
+        color: var(--text-color);
+    }
+    
     & .btn-modal.post {
       background-color: var(--primary-color);
       color: var(--quaternary-color);

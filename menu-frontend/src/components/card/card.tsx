@@ -1,7 +1,8 @@
 import './card.css'
 import edit from '../../../assets/icons/edit.svg'
 import del from '../../../assets/icons/delete.svg'
-import  DeleteModal  from '../delete-modal/delete-modal'
+import UpdateModal  from '../update-modal/update-modal'
+import DeleteModal  from '../delete-modal/delete-modal'
 import { useState } from 'react'
 
 export interface CardProps {
@@ -12,10 +13,15 @@ export interface CardProps {
 }
 
 export default function Card( { id, price, title, image } : CardProps) {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-    const handleOpenModal = () => {
-        setIsModalOpen(prev => !prev)
+    const handleOpenUpdateModal = () => {
+        setIsUpdateModalOpen(prev => !prev)
+    }
+
+    const handleOpenDeleteModal = () => {
+        setIsDeleteModalOpen(prev => !prev)
     }
 
     return (
@@ -30,17 +36,18 @@ export default function Card( { id, price, title, image } : CardProps) {
                     <p>Title: <span>{title}</span></p>
 
                     <div className='button-div'>
-                        <button>
+                        <button onClick={handleOpenUpdateModal}>
                             <img src={edit} alt="svg edit icon" className='svg-action edit'/>
                         </button>
-                        <button onClick={handleOpenModal}>
+                        <button onClick={handleOpenDeleteModal}>
                             <img src={del} alt="svg delete icon" className='svg-action delete'/>
                         </button>
                     </div>
                 </div>
             </div>
 
-            {isModalOpen && <DeleteModal id={id} title={title} closeModal={handleOpenModal}/>}
+            {isUpdateModalOpen && <UpdateModal id={id} title={title} price={price} image={image} closeModal={handleOpenUpdateModal}/>}
+            {isDeleteModalOpen && <DeleteModal id={id} title={title} closeModal={handleOpenDeleteModal}/>}
         </>
     );
 }
