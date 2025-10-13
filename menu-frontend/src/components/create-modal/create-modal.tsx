@@ -55,7 +55,7 @@ export default function CreateModal({ closeModal } : ModalProps) {
                     <Input label={"Title"} value={title} updateValue={setTitle} classNameInput="post-input" classNameLabel="post-label"></Input>
                     <Input label={"Price"} value={price} updateValue={setPrice} classNameInput="post-input" classNameLabel="post-label"></Input>
                     <Input label={"Image"} value={image} updateValue={setImage} classNameInput="post-input" classNameLabel="post-label"></Input>
-                    <button onClick={submit} className="btn-post">{isPending ? 'Posting...' : 'Post'}</button>
+                    <button onClick={submit} className="btn-modal post">{isPending ? 'Posting...' : 'Post'}</button>
                 </form>
             </div>
         </div>

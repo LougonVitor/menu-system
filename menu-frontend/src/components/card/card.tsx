@@ -1,14 +1,23 @@
 import './card.css'
 import edit from '../../../assets/icons/edit.svg'
 import del from '../../../assets/icons/delete.svg'
+import  DeleteModal  from '../delete-modal/delete-modal'
+import { useState } from 'react'
 
 export interface CardProps {
+    id?: number,
     price: number,
     title: string,
     image: string
 }
 
-export default function Card( { price, title, image } : CardProps) {
+export default function Card( { id, price, title, image } : CardProps) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        setIsModalOpen(prev => !prev)
+    }
+
     return (
         <>
             <div className='card'>
@@ -24,12 +33,14 @@ export default function Card( { price, title, image } : CardProps) {
                         <button>
                             <img src={edit} alt="svg edit icon" className='svg-action edit'/>
                         </button>
-                        <button>
+                        <button onClick={handleOpenModal}>
                             <img src={del} alt="svg delete icon" className='svg-action delete'/>
                         </button>
                     </div>
                 </div>
             </div>
+
+            {isModalOpen && <DeleteModal id={id} title={title} closeModal={handleOpenModal}/>}
         </>
     );
 }

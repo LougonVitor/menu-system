@@ -15,8 +15,6 @@
 
     max-width: 700px;
     width: 90%;
-    max-height: 350px;
-    height: 90%;
     background-color: var(--quaternary-color);
     border-radius: 10px;
     padding: 20px;
@@ -38,23 +36,29 @@
       border-radius: 5px;
     }
 
-    & .btn-post {
+    & .btn-modal.post {
+      background-color: var(--primary-color);
+      color: var(--quaternary-color);
+    }
+
+    & .btn-modal {
       width: 100%;
       margin-top: 20px;
-      background-color: var(--primary-color);
       padding: 8px 12px;
       cursor: pointer;
       border: none;
-      color: var(--quaternary-color);
       font-weight: 400;
       border-radius: 5px;
-
       transition: .3s;
+    }
+
+    & .btn-modal.post {
+      border: none;
     }
   }
 }
 
-.btn-post:hover {
+.btn-modal:hover {
   transition: .3s;
   transform: scale(1.01);
   box-shadow: 5px 5px 5px rgba(74, 74, 74, 0.41);

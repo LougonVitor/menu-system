@@ -23,6 +23,7 @@ export default function Home() {
               {data?.map(foodData => 
                 <Card 
                   key={foodData.id}
+                  id={foodData.id}
                   price={foodData.price}
                   title={foodData.title}
                   image={foodData.image}
