@@ -3,11 +3,10 @@
     background-color: var(--tertiary-color);
     width: 200px;
     height: 250px;
-    border-radius: 15px;
+    border-radius: 10px;
     position: relative;
     overflow: hidden;
     transition: .3s;
-    cursor: pointer;
 
     & .box-card {
         width: 100%;
@@ -24,6 +23,7 @@
         height: 50%;
         text-align: left;
         padding: 10px;
+        position: relative;
 
         & h1, p {
             font-weight: 700;
@@ -33,13 +33,45 @@
                 font-weight: 300;
             }
         }
+
+        & .button-div {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 10px;
+
+            & button {
+                border: none;
+                background-color: transparent;
+                width: 25px;
+                height: 25px;
+                cursor: pointer;
+                margin: 0px 5px;
+                padding: 0px 5px;
+                background-color: var(--quaternary-color);
+                border-radius: 3px;
+                transition: .3s;
+            }
+
+            & .svg-action {
+                color: white;
+                width: 100%;
+
+                display: flex;
+                margin: auto;
+            }
+
+            & .button-div, button:hover {
+                transform: scale(1.1);
+                box-shadow: 3px 3px 5px rgba(105, 105, 105, 0.322);
+            }
+        }
     }
 }
 
 .card:hover {
-    transition: .3s;
 
-    transform: scale(1.01);
+   /*  transform: scale(1.005); */
 
-    box-shadow: 5px 5px 10px rgba(105, 105, 105, 0.445);
+    box-shadow: 5px 5px 10px rgba(105, 105, 105, 0.322);
 }

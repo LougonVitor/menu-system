@@ -1,4 +1,4 @@
-import './index.css'
+import './style.css'
 
 import Card from '../../components/card/card'
 import { useFoodData } from '../../hook/useFoodData';
