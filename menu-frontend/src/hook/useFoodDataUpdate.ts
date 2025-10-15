@@ -5,8 +5,8 @@ import { FoodData } from "../interface/FoodData";
 
 const API_URL = 'http://localhost:8080';
 
-const updateData = async(data : FoodData): AxiosPromise<any> => {
-    const response = axios.put(API_URL + '/food', data);
+const updateData = async(data: FoodData): AxiosPromise<any> => {
+    const response = axios.put(API_URL + `/food/${data.id}`, data);
     return response;
 }
 

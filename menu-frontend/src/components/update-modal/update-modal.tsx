@@ -29,26 +29,30 @@ const Input = ({label, value, updateValue, classNameInput, classNameLabel} : Inp
 }
 
 export default function UpdateModal({id, title, price, image, closeModal}: foodProps) {
-    const [titleState, setTitle] = useState("");
-    const [priceState, setPrice] = useState(0);
-    const [imageState, setImage] = useState("");
+    const [titleState, setTitle] = useState(title);
+    const [priceState, setPrice] = useState(price);
+    const [imageState, setImage] = useState(image);
     const { mutate: udpateFood, isPending } = useFoodDataUpdate();
 
     const submit = (event: React.FormEvent) => {
         event.preventDefault();
 
         const foodData : FoodData = {
-            title,
-            price,
-            image
+            id,
+            title: titleState,
+            price: priceState,
+            image: imageState
         }
 
         udpateFood(foodData);
+        closeModal();
     }
 
     const hadleCancelDelete = () => {
         closeModal();
     }
+
+    debugger;
 
     return (
         <>
@@ -56,9 +60,9 @@ export default function UpdateModal({id, title, price, image, closeModal}: foodP
             <div className="modal-body">
                 <h2>Send Form</h2>
                 <form className="input-container">
-                    <Input label={"Title"} value={title} updateValue={setTitle} classNameInput="modal-input" classNameLabel="modal-label"></Input>
-                    <Input label={"Price"} value={price} updateValue={setPrice} classNameInput="modal-input" classNameLabel="modal-label"></Input>
-                    <Input label={"Image"} value={image} updateValue={setImage} classNameInput="modal-input" classNameLabel="modal-label"></Input>
+                    <Input label={"Title"} value={titleState} updateValue={setTitle} classNameInput="modal-input" classNameLabel="modal-label"></Input>
+                    <Input label={"Price"} value={priceState} updateValue={setPrice} classNameInput="modal-input" classNameLabel="modal-label"></Input>
+                    <Input label={"Image"} value={imageState} updateValue={setImage} classNameInput="modal-input" classNameLabel="modal-label"></Input>
                     <button onClick={submit} className="btn-modal put">{isPending ? 'Updating...' : 'Update'}</button>
                     <button className="btn-modal cancel" onClick={hadleCancelDelete}>{isPending ? 'Canceling...' : 'Cancel'}</button>
                 </form>
