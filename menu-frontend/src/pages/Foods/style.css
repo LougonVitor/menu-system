@@ -3,7 +3,7 @@
     max-width: 1300px;
 
     display: flex;
-    margin: auto;
+    margin: 20px auto;
 
     & .centralizing {
         width: 100%;

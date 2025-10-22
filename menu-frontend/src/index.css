@@ -90,3 +90,8 @@ body {
     box-shadow: 5px 5px 5px rgba(74, 74, 74, 0.41);
   }
 }
+
+main {
+  min-height: 100vh;
+  background-color: var(--quaternary-color);
+}
