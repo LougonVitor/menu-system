@@ -1,6 +1,6 @@
 .slider-container {
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
     height: 300px;
     margin: 0px auto;
     overflow: hidden;
@@ -10,7 +10,7 @@
 
 .slider-track {
     display: flex;
-    width: 300%;
+    width: 300vw;
     height: 100%;
     
     animation: slide-movement 12s ease-in-out infinite;
@@ -75,5 +75,22 @@
     /* Volta suave para o Slide 1 (1s) */
     75%, 100% {
         transform: translateX(0);
+    }
+}
+
+@media (max-width: 1000px) {
+    .slide.one {
+        background-size: cover;
+        background-position: 0px -00%;
+    }
+
+    .slide.two {
+        background-size: cover;
+        background-position: 0px -0%;
+    }
+
+    .slide.three {
+        background-size: cover;
+        background-position: 0px -00%;
     }
 }
