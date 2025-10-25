@@ -3,7 +3,7 @@ import edit from '../../../assets/icons/edit.svg'
 import del from '../../../assets/icons/delete.svg'
 import UpdateModal  from '../update-modal/update-modal'
 import DeleteModal  from '../delete-modal/delete-modal'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export interface CardProps {
     id?: number,
@@ -23,6 +23,15 @@ export default function Card( { id, price, title, image } : CardProps) {
     const handleOpenDeleteModal = () => {
         setIsDeleteModalOpen(prev => !prev)
     }
+
+    useEffect(() => {
+    if (isUpdateModalOpen || isDeleteModalOpen) {
+        document.body.style.overflow = 'hidden';
+        window.scrollTo(0, 0);
+    } else {
+        document.body.style.overflow = 'unset';
+    }
+    })
 
     return (
         <>

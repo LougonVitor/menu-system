@@ -2,16 +2,25 @@ import './style.css'
 
 import Card from '../../components/card/card'
 import { useFoodData } from '../../hook/useFoodData';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CreateModal from '../../components/create-modal/create-modal';
 
-export default function Home() {
+export default function Foods() {
   const { data } = useFoodData();
   const [ isModalOpen, setIsModalOpen ] = useState(false);
 
   const handleOpenModal = () => {
     setIsModalOpen(prev => !prev)
   }
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+      window.scrollTo(0, 0);
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  })
 
     return (
       <>
