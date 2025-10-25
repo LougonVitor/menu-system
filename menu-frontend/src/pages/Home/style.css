@@ -78,6 +78,51 @@
     }
 }
 
+
+
+
+/* content-container */
+.content-container {
+    height: 100%;
+    margin: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+
+    & aside {
+        width: 500px;
+        padding: 20px;
+        text-align: center;
+        border-radius: 5px;
+        background-color: var(--primary-color);
+        color: var(--quaternary-color);
+        box-shadow: 4px 4px 13px rgb(128, 128, 128);
+
+        & h1, h2 {
+            font-size: 1.3rem;
+            padding-bottom: 5px;
+        }
+        
+        & p {
+            text-align: justify;
+        }
+
+        & ul {
+            padding-left: 20px;
+            & li {
+                text-align: left;
+
+                & a {
+                    text-decoration: none;
+                    color: var(--quaternary-color);
+                }
+            }
+        }
+    }
+}
+
+
 @media (max-width: 1000px) {
     .slide.one {
         background-size: cover;

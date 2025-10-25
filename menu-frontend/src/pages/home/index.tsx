@@ -19,6 +19,51 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            <section className='content-container'>
+                <aside>
+                    <h1>A system to you store your foods</h1>
+                    <p>
+                        In today's fast-paced world, it's all too easy to lose track of what's in your pantry, fridge, and freezer. The result? Spoiled food, forgotten leftovers, and last-minute runs to the grocery store for items you already have.Introducing the [Your System Name Here]—your dedicated digital solution for total food inventory management. We move beyond simple lists to give you complete clarity over your kitchen's contents.
+                    </p>
+
+                    <br />
+
+                    <h2>Learn more about foods</h2>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="https://en.wikipedia.org/wiki/Food">Wikipedia: Food</a>
+                            </li>
+                            <li>
+                                <a href="https://www.fda.gov/">Food & Drug Administration (FDA)</a>
+                            </li>
+                            <li>
+                                <a href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet">WHO: Healthy Diet Guidelines</a>
+                            </li>
+                            <li>
+                                <a href="https://www.myplate.gov/">USDA MyPlate (Nutrition Info)</a>
+                            </li>
+                            <li>
+                                <a href="#">The Science of Cooking</a>
+                            </li>
+                            <li>
+                                <a href="#">Global Food News & Trends</a>
+                            </li>
+                            <li>
+                                <a href="#">Food Safety & Storage Tips</a>
+                            </li>
+                            <li>
+                                <a href="#">Sustainable Eating Guides</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <aside>
+
+                </aside>
+            </section>
         </>
     )
 }
