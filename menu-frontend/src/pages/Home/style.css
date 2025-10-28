@@ -193,12 +193,9 @@
     .content-container {
         display: block;
 
-        & aside {
+        & aside, article {
             margin: 20px auto;
-        }
-
-        & article {
-            margin: 20px auto;
+            width: 100%;
         }
     }
 }
