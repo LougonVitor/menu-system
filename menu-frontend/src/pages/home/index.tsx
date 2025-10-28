@@ -47,7 +47,8 @@ export default function Home() {
                 </aside>
 
                 <article>
-
+                    <h1>How Foods Can Help You</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, molestias assumenda velit rerum quibusdam voluptates deserunt hic ea, obcaecati, praesentium maxime similique at nesciunt nobis harum voluptatem totam delectus itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quaerat quia quae sunt numquam nesciunt est assumenda distinctio ducimus voluptates corporis rem unde labore in voluptatum cupiditate quas repellat rerum?</p>
                 </article>
             </section>
         </>
