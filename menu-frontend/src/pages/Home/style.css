@@ -194,7 +194,11 @@
         display: block;
 
         & aside {
-            margin: auto;
+            margin: 20px auto;
+        }
+
+        & article {
+            margin: 20px auto;
         }
     }
 }

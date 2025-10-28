@@ -12,12 +12,10 @@
     padding: 20px;
 }
 
-.header-box.title {
-    & h1 {
-        font-size: 1.8rem;
-        letter-spacing: 1px;
-        color: var(--quaternary-color);
-    }
+.header-box.title h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    color: var(--quaternary-color);
 }
 
 .header-box {
