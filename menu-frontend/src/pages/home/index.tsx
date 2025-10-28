@@ -46,9 +46,9 @@ export default function Home() {
                     </nav>
                 </aside>
 
-                <aside>
+                <article>
 
-                </aside>
+                </article>
             </section>
         </>
     )
